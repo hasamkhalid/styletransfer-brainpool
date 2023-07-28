@@ -1,0 +1,10 @@
+{
+  "main": {
+    "name":"Style Transfer App",
+    "description":"The fast-neural-style-mosaic-onnx model is one of the style transfer models designed to mix the content of an image with the style of another image",
+    "image":"profilepic.png",
+    "image2":"preview.png",
+    "project":"#selection",
+    "bg":"bg.jpg"
+  }
+}

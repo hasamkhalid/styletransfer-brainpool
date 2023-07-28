@@ -1,0 +1,77 @@
+# docker-compose.yml
+version: "3.8"
+
+####################
+# ENVIRONMENT VARS #
+####################
+x-client-env: &client-env
+
+x-api-env: &api-env
+ 
+
+####################
+
+services:
+  ###################
+  ### SPA SERVICE ###
+  ###################
+  spa:
+    container_name: spa
+    hostname: spa
+    build:
+      context: ./spa  # Path to your ReactJS SPA directory
+      dockerfile: Dockerfile
+    restart: on-failure
+    networks:
+      - network
+    ports:
+      - 3000:3000     # Map port 3000 of the container to port 3000 on the host
+    depends_on:
+      - api           # The SPA service depends on the API service to be running
+    environment:
+      - REACT_APP_API_ENDPOINT=api:5000/style_transfer
+
+  ###################
+  ### API SERVICE ###
+  ###################
+  api:
+    container_name: api
+    hostname: api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    restart: on-failure
+    networks:
+      - network
+    ports:
+      - 5000:5000
+    depends_on:
+      - ovms
+
+  ####################
+  ### OVMS SERVICE ###
+  ####################
+  ovms:
+    container_name: ovms
+    hostname: ovms
+    image: openvino/model_server:latest
+    command: /ie-serving-py/start_server.sh ie_serving model
+      --model_path /var/www/models
+      --model_name fast-neural-style-mosaic
+      --port 8080
+      --rest_port 8081
+    restart: on-failure
+    networks:
+      - network
+    expose:
+      - 8080
+      - 8081
+    ports:
+      - 8080:8080
+      - 8081:8081
+    volumes:
+      - ./models:/var/www/models
+
+networks:
+  network:
+    driver: bridge

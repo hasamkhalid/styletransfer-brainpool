@@ -1,0 +1,6 @@
+ovmsclient
+numpy
+opencv-python
+Pillow
+Flask
+flask-cors
