@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
 import { css } from '@emotion/react';
 import BeatLoader from 'react-spinners/BeatLoader';
 const override = css`
@@ -26,15 +25,12 @@ class Selection extends Component {
       loader: true,
     });
     var self = this;
+    const formData = new FormData();
+    formData.append('image', this.state.image);
+    formData.append('filename', this.state.filename);
     fetch(backendApiUrl, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: { imagename: 'deepfake', image_base64: this.state.image },
-      }),
+      body: formData
     })
       .then(function (response) {
         self.setState({
@@ -79,6 +75,10 @@ class Selection extends Component {
         });
       };
       reader.readAsDataURL(event.target.files[0]);
+      self.setState({
+        filename: event.target.files[0].name,
+      });
+
     } else
       this.setState({
         message: 'Invalid Image format. Please choose png/jpeg.',
@@ -86,7 +86,6 @@ class Selection extends Component {
   };
   render() {
     if (!this.props.data) return null;
-    const profilepic = 'images/' + this.props.data.image; // change for file icon
     const preview = 'images/' + this.props.data.image2;
 
     return (
