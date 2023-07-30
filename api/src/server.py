@@ -9,6 +9,8 @@ from flask_cors import CORS
 import logging
 
 
+# Note: model server needs to be live
+
 # Configure logging
 logging.basicConfig(
     level=logging.DEBUG,

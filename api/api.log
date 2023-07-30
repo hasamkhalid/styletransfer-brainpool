@@ -1,0 +1,20 @@
+2023-07-30 13:31:17,303 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:31:17,304 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:31:17,305 - DEBUG - Request Data: resources/chicago.png
+2023-07-30 13:31:17,305 - ERROR - Error during style transfer: Incorrect padding
+2023-07-30 13:36:58,073 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:37:30,629 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:37:42,744 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:38:02,337 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:38:13,529 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:38:13,558 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:38:13,575 - DEBUG - Request Data: chicago.jpg
+2023-07-30 13:38:13,622 - INFO - Image saved successfully to uploads/chicago.jpg
+2023-07-30 13:38:13,622 - INFO - Making ovms client connection to the server.
+2023-07-30 13:38:16,831 - ERROR - Error during style transfer: Error occurred during handling the request: DNS resolution failed for ovms:8080: C-ares status is not ARES_SUCCESS qtype=A name=ovms is_balancer=0: Domain name not found
+2023-07-30 13:39:18,094 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:39:18,124 - INFO - Start of style transfer (post) endpoint.
+2023-07-30 13:39:18,140 - DEBUG - Request Data: chicago.jpg
+2023-07-30 13:39:18,175 - INFO - Image saved successfully to uploads/chicago.jpg
+2023-07-30 13:39:18,176 - INFO - Making ovms client connection to the server.
+2023-07-30 13:39:18,259 - ERROR - Error during style transfer: Error occurred during handling the request: DNS resolution failed for ovms:8080: C-ares status is not ARES_SUCCESS qtype=A name=ovms is_balancer=0: Domain name not found
